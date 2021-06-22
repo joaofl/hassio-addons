@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.1.1]
+### Changed
+- Add possibility to show or hide the SSID
+
 ## [1.1.0]
 ### Changed
 - Add possibility to configure the DHCP and Hosapd settings for better customization of the access point

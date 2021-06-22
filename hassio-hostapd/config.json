@@ -42,7 +42,8 @@
     "dhcp_end": "192.168.2.200",
     "dhcp_dns": "1.1.1.1",
     "dhcp_subnet": "255.255.255.0",
-    "dhcp_router": "192.168.2.1"
+    "dhcp_router": "192.168.2.1",
+    "ignore_broadcast_ssid": "0"
   },
   "schema": {
     "ssid": "str",
@@ -58,6 +59,7 @@
     "dhcp_end": "str",
     "dhcp_dns": "str",
     "dhcp_subnet": "str",
-    "dhcp_router": "str"
+    "dhcp_router": "str",
+    "ignore_broadcast_ssid": "int"
   }
 } 

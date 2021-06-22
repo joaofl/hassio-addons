@@ -30,6 +30,7 @@ NETMASK=$(jq --raw-output ".netmask" $CONFIG_PATH)
 BROADCAST=$(jq --raw-output ".broadcast" $CONFIG_PATH)
 INTERFACE=$(jq --raw-output ".interface" $CONFIG_PATH)
 ALLOW_INTERNET=$(jq --raw-output ".allow_internet" $CONFIG_PATH)
+IGNORE_BROADCAST_SSID=$(jq --raw-output ".ignore_broadcast_ssid" $CONFIG_PATH)
 
 DHCP_SERVER=$(jq --raw-output ".dhcp_enable" $CONFIG_PATH)
 DHCP_START=$(jq --raw-output ".dhcp_start" $CONFIG_PATH)
