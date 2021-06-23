@@ -105,13 +105,9 @@ echo "channel=${CHANNEL}" >> ${HCONFIG}
 echo "interface=${INTERFACE}" >> ${HCONFIG}
 echo "" >> ${HCONFIG}
 
-if test ${HIDE_SSID} = true;
-then
+if test ${HIDE_SSID} = true; then
     echo "Hidding SSID"
-    sed -i 's/ignore_broadcast_ssid=0/ignore_broadcast_ssid=1/' ${HCONFIG}
-else
-    echo "Showing SSID"
-    sed -i 's/ignore_broadcast_ssid=1/ignore_broadcast_ssid=0/' ${HCONFIG}
+    echo "ignore_broadcast_ssid=1" >> ${HCONFIG}
 fi
 
 # Setup interface
