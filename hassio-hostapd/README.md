@@ -32,7 +32,7 @@ according to your needs:
     "dhcp_dns": "1.1.1.1",
     "dhcp_subnet": "255.255.255.0",
     "dhcp_router": "192.168.2.1",
-    "ignore_broadcast_ssid": "0"
+    "hide_ssid": false
 }
 
 ```

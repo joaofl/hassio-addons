@@ -1,6 +1,6 @@
 {
   "name": "Hassio Hostapd Extended",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "slug": "hassio-hostapd-extended",
   "description": "Access point for your IoT devives with configurable network interface and DHCP server",
   "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
@@ -43,7 +43,7 @@
     "dhcp_dns": "1.1.1.1",
     "dhcp_subnet": "255.255.255.0",
     "dhcp_router": "192.168.2.1",
-    "ignore_broadcast_ssid": "0"
+    "hide_ssid": false
   },
   "schema": {
     "ssid": "str",
@@ -60,6 +60,6 @@
     "dhcp_dns": "str",
     "dhcp_subnet": "str",
     "dhcp_router": "str",
-    "ignore_broadcast_ssid": "int"
+    "hide_ssid": "bool"
   }
 } 
