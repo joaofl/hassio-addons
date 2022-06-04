@@ -25,6 +25,7 @@
     "config:rw",
     "ssl:rw"
   ],
+  "init": false,
   "options": {
     "ssid": "",
     "wpa_passphrase": "",
