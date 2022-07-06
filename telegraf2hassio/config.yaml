@@ -1,6 +1,6 @@
 ---
 name: Telegraf2Hassio
-version: 0.1.0
+version: 0.1.1
 slug: telegraf2hassio
 description: Turn telegraf metrics into hassio self-discovered sensors
 arch:
@@ -20,6 +20,7 @@ devices:
 map:
 - config:rw
 - share:rw
+init: false
 options:
   mqtt_broker: localhost
   mqtt_port: 1883
