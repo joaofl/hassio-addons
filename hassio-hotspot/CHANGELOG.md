@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.1.6]
+### Fixed
+- Add switch from networkmanager to networkmanager-cli for nmcli (thanks to @dfries)
+
 ## [1.1.5]
 ### Fixed
 - Fix missmatched interface name (thanks to @smbitech)

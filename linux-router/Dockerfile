@@ -12,7 +12,7 @@ ENV LANG C.UTF-8
 RUN apk update && apk add --no-cache    \
     bash jq                             \
     busybox-extras                      \
-    hostapd networkmanager iptables     \
+    hostapd networkmanager-cli iptables \
     procps-ng iw dnsmasq net-tools      \
     linux-firmware-other                \
     linux-firmware-ath6k                \

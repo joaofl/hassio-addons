@@ -13,7 +13,7 @@ RUN apk update && apk add --no-cache    \
     avahi                               \
     bash jq iw net-tools                \
     sudo busybox-extras                 \
-    hostapd networkmanager iptables     \
+    hostapd networkmanager-cli iptables \
     linux-firmware-other                \
     linux-firmware-ath6k                \
     linux-firmware-ath10k               \
