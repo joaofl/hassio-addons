@@ -1,7 +1,7 @@
 # hassio-hotspot (previously hassio-hostapd-extended)
-Enables an access point using USB Wifi dongle for your IoT devies on Home Assistant (with embedded DHCP server). This is mostly usefull if you want to have a different network infrastructure for your IoT devices, and can not do it with the RPi onboard Wifi, due to stabilities issue. 
+Enables an access point using USB WiFi dongle (or onboard) for your IoT devies on Home Assistant (with embedded DHCP server). USB WiFi is mostly useful if you want to have a different network infrastructure for your IoT devices, and the RPI onboard WiFi is not available or is unstable.
 
-It allows creating an access point **with optional a DHCP server**, to your IoT devices using extenral USB Wifi dongles, **Ralink, Atheros and others**. It began a fork of the hostapd addon, that I renamed, given that it now does more than that: it adds DHCP server with selectable internet access to the devices on the hotspot. It also adds supports to external USB dongles in order to enable a stable access points, known that the onboard Broadcomm Wifi on the RPi has unstable operation and does not provide the reliability required.
+It allows creating an access point **with optional a DHCP server**, to your IoT devices using external USB WiFi dongles, **Ralink, Atheros and others**. It began a fork of the hostapd addon, that I renamed, given that it now does more than that: it adds DHCP server with selectable internet access to the devices on the hotspot. It also adds supports to external USB dongles in order to enable a stable access points, known that the onboard Broadcomm WiFi on the RPI has unstable operation and does not provide the reliability required.
 
 ## Installation
 
