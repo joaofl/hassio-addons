@@ -16,7 +16,7 @@ https://github.com/joaofl/hassio-addons
 The available configuration options are as bellow. Make sure to edit
 according to your needs:
 
-```
+```json
 {
     "ssid": "WIFI_NAME",
     "wpa_passphrase": "WIFI_PASSWORD",
@@ -33,12 +33,40 @@ according to your needs:
     "dhcp_dns": "1.1.1.1",
     "dhcp_subnet": "255.255.255.0",
     "dhcp_router": "192.168.2.1",
-    "hide_ssid": false
+    "hide_ssid": false,
+    "lease_time": 864000,
+    "static_leases": [
+        {
+            "mac": "00:11:22:33:44:55",
+            "ip": "192.168.2.10",
+            "name": "Living Room Light"
+        }
+    ]
 }
-
 ```
+
 When channel set to 0, it will automatically find the best channel. 
 
 When the `interface` option is left blank, a list with the detected wlan
 interfaces will be printed on the logs and the addon will terminate. Set
 the correct `interface` value on the configuration then restart the addon.
+
+### DHCP Configuration
+
+#### Lease Time
+The `lease_time` option sets how long (in seconds) a DHCP-assigned IP address remains valid. Default is 864000 seconds (10 days).
+
+#### Static Leases
+When configuring static leases, ensure the IP addresses are outside your DHCP range (defined by `dhcp_start` and `dhcp_end`) to avoid IP conflicts.
+
+Example: If your DHCP range is 192.168.2.100 to 192.168.2.200, your static IPs should be below .100 or above .200.
+
+The `static_leases` option allows you to:
+- Reserve specific IP addresses for devices based on their MAC address
+- Optionally assign friendly names to devices for identification
+- Ensure devices always get the same IP address
+
+Each static lease entry requires:
+- `mac`: The device's MAC address (format: XX:XX:XX:XX:XX:XX)
+- `ip`: The IP address to assign
+- `name`: (Optional) A friendly name to identify the device

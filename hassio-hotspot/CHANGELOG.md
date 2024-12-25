@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.1.7]
+### Added
+- Configurable DHCP lease time
+- Static IP reservations based on MAC address with optional device naming
+- Documentation for new DHCP features
+- Create DHCP leases file and directory on startup
+
+### Changed
+- Remove hardcoded DHCP configuration values
+- Calculate max leases dynamically based on DHCP range
+
 ## [1.1.6]
 ### Fixed
 - Add switch from networkmanager to networkmanager-cli for nmcli (thanks to @dfries)

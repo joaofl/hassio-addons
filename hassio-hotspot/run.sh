@@ -40,6 +40,9 @@ DHCP_DNS=$(jq --raw-output ".dhcp_dns" $CONFIG_PATH)
 DHCP_SUBNET=$(jq --raw-output ".dhcp_subnet" $CONFIG_PATH)
 DHCP_ROUTER=$(jq --raw-output ".dhcp_router" $CONFIG_PATH)
 
+LEASE_TIME=$(jq --raw-output ".lease_time" $CONFIG_PATH)
+STATIC_LEASES=$(jq -r '.static_leases[] | "\(.mac),\(.ip),\(.name)"' $CONFIG_PATH)
+
 # Enforces required env variables
 required_vars=(SSID WPA_PASSPHRASE CHANNEL ADDRESS NETMASK BROADCAST)
 for required_var in "${required_vars[@]}"; do
@@ -126,6 +129,15 @@ ifup ${INTERFACE}
 sleep 1
 
 if test ${DHCP_SERVER} = true; then
+    # Create leases directory and file
+    mkdir -p /var/lib/udhcpd
+    touch /var/lib/udhcpd/udhcpd.leases
+
+    # Calculate max leases from DHCP range
+    START_IP_LAST_OCTET=$(echo ${DHCP_START} | cut -d. -f4)
+    END_IP_LAST_OCTET=$(echo ${DHCP_END} | cut -d. -f4)
+    MAX_LEASES=$((END_IP_LAST_OCTET - START_IP_LAST_OCTET + 1))
+
     # Setup hdhcpd.conf
     UCONFIG="/etc/udhcpd.conf"
 
@@ -133,10 +145,19 @@ if test ${DHCP_SERVER} = true; then
     echo "interface    ${INTERFACE}"     >> ${UCONFIG}
     echo "start        ${DHCP_START}"    >> ${UCONFIG}
     echo "end          ${DHCP_END}"      >> ${UCONFIG}
+    echo "max_leases   ${MAX_LEASES}"    >> ${UCONFIG}
     echo "opt dns      ${DHCP_DNS}"      >> ${UCONFIG}
     echo "opt subnet   ${DHCP_SUBNET}"   >> ${UCONFIG}
     echo "opt router   ${DHCP_ROUTER}"   >> ${UCONFIG}
+    echo "opt lease    ${LEASE_TIME}"    >> ${UCONFIG}
     echo ""                              >> ${UCONFIG}
+
+    # Add static leases
+    while IFS=, read -r mac ip name; do
+        if [ ! -z "$mac" ] && [ ! -z "$ip" ]; then
+            echo "static_lease ${mac} ${ip}  # ${name}" >> ${UCONFIG}
+        fi
+    done <<< "${STATIC_LEASES}"
 
     echo "Starting DHCP server..."
     udhcpd -f &

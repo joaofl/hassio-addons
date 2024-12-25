@@ -1,6 +1,6 @@
 {
   "name": "Hassio Hotspot",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "slug": "hassio-hotspot",
   "description": "Access point for your IoT devives with configurable network interface and DHCP server",
   "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
@@ -42,7 +42,15 @@
     "dhcp_dns": "1.1.1.1",
     "dhcp_subnet": "255.255.255.0",
     "dhcp_router": "192.168.2.1",
-    "hide_ssid": false
+    "hide_ssid": false,
+    "lease_time": 864000,
+    "static_leases": [
+      {
+        "mac": "00:11:22:33:44:55",
+        "ip": "192.168.2.10",
+        "name": "My IoT Device"
+      }
+    ]
   },
   "schema": {
     "ssid": "str",
@@ -60,6 +68,14 @@
     "dhcp_dns": "str",
     "dhcp_subnet": "str",
     "dhcp_router": "str",
-    "hide_ssid": "bool"
+    "hide_ssid": "bool",
+    "lease_time": "int",
+    "static_leases": [
+      {
+        "mac": "str",
+        "ip": "str",
+        "name": "str?"
+      }
+    ]
   }
 } 
