@@ -33,7 +33,7 @@
     "address": "192.168.2.1",
     "interface": "",
     "allow_internet": false,
-    "allow_lan": "bool",
+    "allow_lan": false,
     "hide_ssid": false,  
     "user_args": ""
   },
