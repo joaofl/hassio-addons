@@ -19,8 +19,8 @@ CHANNEL=$(jq --raw-output ".channel" $CONFIG_PATH)
 ADDRESS=$(jq --raw-output ".address" $CONFIG_PATH)
 INTERFACE=$(jq --raw-output ".interface" $CONFIG_PATH)
 ALLOW_INTERNET=$(jq --raw-output ".allow_internet" $CONFIG_PATH)
+BAN_PRIV=$(jq --raw-output ".allow_lan" $CONFIG_PATH)
 HIDE_SSID=$(jq --raw-output ".hide_ssid" $CONFIG_PATH)
-BAN_PRIV=$(jq --raw-output ".ban_priv" $CONFIG_PATH)
 USER_ARGS=$(jq --raw-output ".user_args" $CONFIG_PATH)
 
 
@@ -71,7 +71,7 @@ if [[ ${HIDE_SSID} = true ]]; then
     EXTRA_ARGS+="--hidden "
 fi
 
-if [[ ${BAN_PRIV} == true ]]; then
+if [[ ${BAN_PRIV} == false ]]; then
     EXTRA_ARGS+="--ban-priv "
 fi
 
