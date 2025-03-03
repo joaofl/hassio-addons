@@ -34,6 +34,7 @@
     "interface": "",
     "allow_internet": false,
     "hide_ssid": false,
+    "ban_priv": false,  
     "user_args": ""
   },
   "schema": {
@@ -44,6 +45,7 @@
     "interface": "str",
     "allow_internet": "bool",
     "hide_ssid": "bool",
+    "ban_priv": "bool",
     "user_args": "str"
   }
 }
