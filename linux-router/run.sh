@@ -63,6 +63,10 @@ echo "Network interface set to ${INTERFACE}"
 
 EXTRA_ARGS=""
 
+if [[ "$CHANNEL" -gt 0 ]]; then
+    EXTRA_ARGS+="-c ${CHANNEL} "
+fi
+
 if [[ ${ALLOW_INTERNET} = false ]]; then
     EXTRA_ARGS+="-n "
 fi
