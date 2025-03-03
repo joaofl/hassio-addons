@@ -67,12 +67,12 @@ if [[ ${ALLOW_INTERNET} = false ]]; then
     EXTRA_ARGS+="-n "
 fi
 
-if [[ ${HIDE_SSID} = true ]]; then
-    EXTRA_ARGS+="--hidden "
-fi
-
 if [[ ${BAN_PRIV} == false ]]; then
     EXTRA_ARGS+="--ban-priv "
+fi
+
+if [[ ${HIDE_SSID} = true ]]; then
+    EXTRA_ARGS+="--hidden "
 fi
 
 EXTRA_ARGS+="-g ${ADDRESS} "
