@@ -33,8 +33,8 @@
     "address": "192.168.2.1",
     "interface": "",
     "allow_internet": false,
-    "hide_ssid": false,
-    "ban_priv": false,  
+    "allow_lan": "bool",
+    "hide_ssid": false,  
     "user_args": ""
   },
   "schema": {
@@ -44,8 +44,8 @@
     "address": "str",
     "interface": "str",
     "allow_internet": "bool",
+    "allow_lan": "bool",
     "hide_ssid": "bool",
-    "ban_priv": "bool",
     "user_args": "str"
   }
 }
