@@ -70,7 +70,6 @@ if [[ ${HIDE_SSID} = true ]]; then
     EXTRA_ARGS+="--hidden "
 fi
 
-EXTRA_ARGS+="--ban-priv "
 EXTRA_ARGS+="-g ${ADDRESS} "
 
 ./lnxrouter --ap ${INTERFACE} ${SSID} --password ${PASSPHRASE} ${EXTRA_ARGS} ${USER_ARGS}
