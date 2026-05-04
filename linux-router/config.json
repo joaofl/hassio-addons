@@ -1,6 +1,6 @@
 {
   "name": "Linux Router",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "slug": "linux-router",
   "description": "Access point for your IoT devives with configurable network interface, DHCP server and much more",
   "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
